@@ -1,0 +1,10 @@
+[project]
+name = "plc-alarm-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12.3"
+dependencies = [
+    "pygame>=2.6.1",
+    "python-snap7>=3.1.2",
+]
