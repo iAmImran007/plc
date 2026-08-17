@@ -1,34 +1,19 @@
-import pygame
-import snap7
-
-"""
-
-def checking_deps():
-    print("=== Checking pygame ===")
-    try:
-        pygame.mixer.init()
-        print(f"Pygame version: {pygame.version.ver}")
-        print("Pygame mixer initialized successfully")
-    except Exception as e:
-        print("Pygame error:", e)
-
-        print("\n=== Checking python-snap7 ===")
-    try:
-        client = snap7.client.Client()
-        print("Snap7 client object created successfully")
-        print(f"Snap7 module: {snap7.__file__}")
-    except Exception as e:
-        print("Snap7 error:", e)
-
-    print("\nAll dependency checks completed.")
+import asyncio
+import threading
+from process_data.process import dummy_plc, audio_manager_thread
+#from connect.connection import connect_plc
 
 
-"""
-
-def main():
-    checking_deps()
-
-main()
-
-
+async def main():
+    asyncio.create_task(asyncio.to_thread(audio_manager_thread))
     
+    #await connect_plc()
+    await dummy_plc() 
+
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
+    
+
+
